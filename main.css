@@ -1,0 +1,10 @@
+.u-place-center {
+  display: grid;
+  place-items: center;
+}
+
+.u-uppercase {
+  text-transform: uppercase;
+}
+.pricing__header {
+}

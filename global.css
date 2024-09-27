@@ -1,0 +1,535 @@
+@font-face {
+  font-family: 'Poppins';
+  font-weight: normal;
+  font-style: normal;
+  src: url('assets/poppins-regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-weight: bold;
+  font-style: normal;
+  src: url('assets/poppins-bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-weight: normal;
+  font-style: italic;
+  src: url('assets/poppins-italic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-weight: bold;
+  font-style: italic;
+  src: url('assets/poppins-bolditalic.woff2') format('woff2');
+}
+
+:root {
+  --font-family-body: 'Poppins', system-ui;
+  --font-family-title: 'Poppins', system-ui;
+  
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+  
+  --line-height-130: 130%;
+  --line-height-150: 150%;
+
+  --font-size-h1-desktop: 2rem;
+  --font-size-h2-desktop: 1.5rem;
+  --font-size-h3-desktop: 1.25rem;
+  --font-size-md-desktop: 1rem;
+  --font-size-sm-desktop: 0.875rem;
+  --font-size-xs-desktop: 0.75rem;
+
+  --font-size-h1-mobile: 1.75rem;
+  --font-size-h2-mobile: 1.375rem;
+  --font-size-h3-mobile: 1.125rem;
+  --font-size-md-mobile: 0.875rem;
+  --font-size-sm-mobile: 0.75rem;
+  --font-size-xs-mobile: 0.625rem;
+
+  --font-size-h1: clamp(1.75rem, 1.2578rem + 0.651vw, 2rem);
+  --font-size-h2: clamp(1.375rem, 1.2031rem + 0.2604vw, 1.5rem);
+  --font-size-h3: clamp(1.125rem, 1.1016rem + 0.1302vw, 1.25rem);
+  --font-size-md: clamp(0.875rem, 0.8516rem + 0.1302vw, 1rem);
+  --font-size-sm: clamp(0.75rem, 0.7266rem + 0.1302vw, 0.875rem);
+  --font-size-xs: clamp(0.625rem, 0.6016rem + 0.1302vw, 0.75rem);
+
+  --primary-50: hsl(183, 100%, 96%);
+  --primary-100: hsl(185, 96%, 90%);
+  --primary-200: hsl(186, 94%, 82%);
+  --primary-300: hsl(187, 92%, 69%);
+  --primary-400: hsl(188, 86%, 53%);
+  --primary-500: hsl(189, 94%, 43%);
+  --primary-600: hsl(192, 91%, 36%);
+  --primary-700: hsl(193, 82%, 31%);
+  --primary-800: hsl(194, 70%, 27%);
+  --primary-900: hsl(196, 64%, 24%);
+  --primary-950: hsl(197, 79%, 15%);
+  
+  --secondary-50: hsl(226, 100%, 97%);
+  --secondary-100: hsl(226, 100%, 94%);
+  --secondary-200: hsl(228, 96%, 89%);
+  --secondary-300: hsl(230, 94%, 82%);
+  --secondary-400: hsl(234, 89%, 74%);
+  --secondary-500: hsl(239, 84%, 67%);
+  --secondary-600: hsl(243, 75%, 59%);
+  --secondary-700: hsl(245, 58%, 51%);
+  --secondary-800: hsl(244, 55%, 41%);
+  --secondary-900: hsl(242, 47%, 34%);
+  --secondary-950: hsl(244, 47%, 20%);
+  
+  --neutral-50: hsl(0, 0%, 98%);
+  --neutral-100: hsl(0, 0%, 96%);
+  --neutral-200: hsl(0, 0%, 90%);
+  --neutral-300: hsl(0, 0%, 83%);
+  --neutral-400: hsl(0, 0%, 64%);
+  --neutral-500: hsl(0, 0%, 45%);
+  --neutral-600: hsl(0, 0%, 32%);
+  --neutral-700: hsl(0, 0%, 25%);
+  --neutral-800: hsl(0, 0%, 15%);
+  --neutral-900: hsl(0, 0%, 9%);
+  --neutral-950: hsl(0, 0%, 4%);
+  
+  --danger-50: hsl(0, 86%, 97%);
+  --danger-100: hsl(0, 93%, 94%);
+  --danger-200: hsl(0, 96%, 89%);
+  --danger-300: hsl(0, 94%, 82%);
+  --danger-400: hsl(0, 91%, 71%);
+  --danger-500: hsl(0, 84%, 60%);
+  --danger-600: hsl(0, 72%, 51%);
+  --danger-700: hsl(0, 74%, 42%);
+  --danger-800: hsl(0, 70%, 35%);
+  --danger-900: hsl(0, 63%, 31%);
+  --danger-950: hsl(0, 75%, 15%);
+  
+  --alert-50: hsl(55, 92%, 95%);
+  --alert-100: hsl(55, 97%, 88%);
+  --alert-200: hsl(53, 98%, 77%);
+  --alert-300: hsl(50, 98%, 64%);
+  --alert-400: hsl(48, 96%, 53%);
+  --alert-500: hsl(45, 93%, 47%);
+  --alert-600: hsl(41, 96%, 40%);
+  --alert-700: hsl(35, 92%, 33%);
+  --alert-800: hsl(32, 81%, 29%);
+  --alert-900: hsl(28, 73%, 26%);
+  --alert-950: hsl(26, 83%, 14%);
+  
+  --success-50: hsl(138, 76%, 97%);
+  --success-100: hsl(141, 84%, 93%);
+  --success-200: hsl(141, 79%, 85%);
+  --success-300: hsl(142, 77%, 73%);
+  --success-400: hsl(142, 69%, 58%);
+  --success-500: hsl(142, 71%, 45%);
+  --success-600: hsl(142, 76%, 36%);
+  --success-700: hsl(142, 72%, 29%);
+  --success-800: hsl(143, 64%, 24%);
+  --success-900: hsl(144, 61%, 20%);
+  --success-950: hsl(145, 80%, 10%);
+  
+  --primary-background-1: var(--primary-50);
+  --primary-background-2: var(--primary-100);
+  --primary-background-3: var(--primary-200);
+  --primary-border-2: var(--primary-300);
+  --primary-border-1: var(--primary-400);
+  --primary-base: var(--primary-500);
+  --primary-text-3: var(--primary-600);
+  --primary-text-2: var(--primary-700);
+  --primary-text-1: var(--primary-800);
+  --primary-base-alt: var(--primary-900);
+  --primary-ultra: var(--primary-950);
+  --primary-gradient-1: linear-gradient(var(--gradient-degree), var(--primary-200), var(--primary-50));
+  --primary-gradient-2: linear-gradient(var(--gradient-degree), var(--primary-400), var(--primary-200));
+  --primary-gradient-3: linear-gradient(var(--gradient-degree), var(--primary-600), var(--primary-400));
+  --primary-gradient-4: linear-gradient(var(--gradient-degree), var(--primary-800), var(--primary-600));
+  --primary-gradient-5: linear-gradient(var(--gradient-degree), var(--primary-950), var(--primary-800));
+
+  --secondary-background-1: var(--secondary-50);
+  --secondary-background-2: var(--secondary-100);
+  --secondary-background-3: var(--secondary-200);
+  --secondary-border-2: var(--secondary-300);
+  --secondary-border-1: var(--secondary-400);
+  --secondary-base: var(--secondary-500);
+  --secondary-text-3: var(--secondary-600);
+  --secondary-text-2: var(--secondary-700);
+  --secondary-text-1: var(--secondary-800);
+  --secondary-base-alt: var(--secondary-900);
+  --secondary-ultra: var(--secondary-950);
+  --secondary-gradient-1: linear-gradient(var(--gradient-degree), var(--secondary-200), var(--secondary-50));
+  --secondary-gradient-2: linear-gradient(var(--gradient-degree), var(--secondary-400), var(--secondary-200));
+  --secondary-gradient-3: linear-gradient(var(--gradient-degree), var(--secondary-600), var(--secondary-400));
+  --secondary-gradient-4: linear-gradient(var(--gradient-degree), var(--secondary-800), var(--secondary-600));
+  --secondary-gradient-5: linear-gradient(var(--gradient-degree), var(--secondary-950), var(--secondary-800));
+  
+  --neutral-background-1: var(--neutral-50);
+  --neutral-background-2: var(--neutral-100);
+  --neutral-background-3: var(--neutral-200);
+  --neutral-border-2: var(--neutral-300);
+  --neutral-border-1: var(--neutral-400);
+  --neutral-base: var(--neutral-500);
+  --neutral-text-3: var(--neutral-600);
+  --neutral-text-2: var(--neutral-700);
+  --neutral-text-1: var(--neutral-800);
+  --neutral-base-alt: var(--neutral-900);
+  --neutral-ultra: var(--neutral-950);
+  --neutral-gradient-1: linear-gradient(var(--gradient-degree), var(--neutral-200), var(--neutral-50));
+  --neutral-gradient-2: linear-gradient(var(--gradient-degree), var(--neutral-400), var(--neutral-200));
+  --neutral-gradient-3: linear-gradient(var(--gradient-degree), var(--neutral-600), var(--neutral-400));
+  --neutral-gradient-4: linear-gradient(var(--gradient-degree), var(--neutral-800), var(--neutral-600));
+  --neutral-gradient-5: linear-gradient(var(--gradient-degree), var(--neutral-950), var(--neutral-800));
+  
+  --danger-background-1: var(--danger-50);
+  --danger-background-2: var(--danger-100);
+  --danger-background-3: var(--danger-200);
+  --danger-border-2: var(--danger-300);
+  --danger-border-1: var(--danger-400);
+  --danger-base: var(--danger-500);
+  --danger-text-3: var(--danger-600);
+  --danger-text-2: var(--danger-700);
+  --danger-text-1: var(--danger-800);
+  --danger-base-alt: var(--danger-900);
+  --danger-ultra: var(--danger-950);
+  --danger-gradient-1: linear-gradient(var(--gradient-degree), var(--danger-200), var(--danger-50));
+  --danger-gradient-2: linear-gradient(var(--gradient-degree), var(--danger-400), var(--danger-200));
+  --danger-gradient-3: linear-gradient(var(--gradient-degree), var(--danger-600), var(--danger-400));
+  --danger-gradient-4: linear-gradient(var(--gradient-degree), var(--danger-800), var(--danger-600));
+  --danger-gradient-5: linear-gradient(var(--gradient-degree), var(--danger-950), var(--danger-800));
+  
+  --alert-background-1: var(--alert-50);
+  --alert-background-2: var(--alert-100);
+  --alert-background-3: var(--alert-200);
+  --alert-border-2: var(--alert-300);
+  --alert-border-1: var(--alert-400);
+  --alert-base: var(--alert-500);
+  --alert-text-3: var(--alert-600);
+  --alert-text-2: var(--alert-700);
+  --alert-text-1: var(--alert-800);
+  --alert-base-alt: var(--alert-900);
+  --alert-ultra: var(--alert-950);
+  --alert-gradient-1: linear-gradient(var(--gradient-degree), var(--alert-200), var(--alert-50));
+  --alert-gradient-2: linear-gradient(var(--gradient-degree), var(--alert-400), var(--alert-200));
+  --alert-gradient-3: linear-gradient(var(--gradient-degree), var(--alert-600), var(--alert-400));
+  --alert-gradient-4: linear-gradient(var(--gradient-degree), var(--alert-800), var(--alert-600));
+  --alert-gradient-5: linear-gradient(var(--gradient-degree), var(--alert-950), var(--alert-800));
+  
+  --success-background-1: var(--success-50);
+  --success-background-2: var(--success-100);
+  --success-background-3: var(--success-200);
+  --success-border-2: var(--success-300);
+  --success-border-1: var(--success-400);
+  --success-base: var(--success-500);
+  --success-text-3: var(--success-600);
+  --success-text-2: var(--success-700);
+  --success-text-1: var(--success-800);
+  --success-base-alt: var(--success-900);
+  --success-ultra: var(--success-950);
+  --success-gradient-1: linear-gradient(var(--gradient-degree), var(--success-200), var(--success-50));
+  --success-gradient-2: linear-gradient(var(--gradient-degree), var(--success-400), var(--success-200));
+  --success-gradient-3: linear-gradient(var(--gradient-degree), var(--success-600), var(--success-400));
+  --success-gradient-4: linear-gradient(var(--gradient-degree), var(--success-800), var(--success-600));
+  --success-gradient-5: linear-gradient(var(--gradient-degree), var(--success-950), var(--success-800));
+
+  --gradient-degree: 135deg;
+  
+  --gutter: 1rem;
+  --grid-padding: 3rem;
+  --column-width: 5.25rem;
+  
+  --size-1px: 1px;
+  --size-2px: 2px;
+  --size-3px: 3px;
+  --size-1: 0.25rem;
+  --size-2: 0.5rem;
+  --size-3: 0.75rem;
+  --size-4: 1rem;
+  --size-5: 1.25rem;
+  --size-6: 1.75rem;
+  --size-7: 2.25rem;
+  --size-8: 3rem;
+  --size-9: 4rem;
+  --size-10: 5.25rem;
+  --size-11: 7rem;
+  --size-12: 8.75rem;
+  --size-13: 11rem;
+  --size-14: 13.75rem;
+  --size-15: 17.25rem;
+  --size-16: 21.75rem;
+  --size-17: 27.25rem;
+  --size-18: 34.25rem;
+  --size-19: 43rem;
+  --size-20: 53.75rem;
+
+  --mobile-min: 20rem;
+  --mobile-vw: 90vw;
+  --mobile-max: 43.2rem;
+  --mobile: clamp(var(--mobile-min), var(--mobile-vw), var(--mobile-max));
+
+  --tablet-min: 40.8rem;
+  --tablet-vw: 85vw;
+  --tablet-max: 54.4rem;
+  --tablet: clamp(var(--tablet-min), var(--tablet-vw), var(--tablet-max));
+
+  --desktop-min: 60.8rem;
+  --desktop-vw: 95vw;
+  --desktop-max: 114rem;
+  --desktop: clamp(var(--desktop-min), var(--desktop-vw), var(--desktop-max));  
+
+  --gap-3xs: var(--size-1);
+  --gap-2xs: var(--size-2);
+  --gap-xs: var(--size-3);
+  --gap-sm: var(--size-4);
+  --gap-md: var(--size-5);
+  --gap-lg: var(--size-6);
+  --gap-xl: var(--size-7);
+  --gap-2xl: var(--size-8);
+  --gap-3xl: var(--size-9);
+  --gap-10: var(--size-10);
+  --gap-11: var(--size-11);
+  --gap-12: var(--size-12);
+  --gap-13: var(--size-13);
+  --gap-14: var(--size-14);
+  --gap-15: var(--size-15);
+  --gap-16: var(--size-16);
+  --gap-17: var(--size-17);
+  --gap-18: var(--size-18);
+  --gap-19: var(--size-19);
+  --gap-20: var(--size-20);
+
+  --padding-3xs: var(--size-1);
+  --padding-2xs: var(--size-2);
+  --padding-xs: var(--size-3);
+  --padding-sm: var(--size-4);
+  --padding-md: var(--size-5);
+  --padding-lg: var(--size-6);
+  --padding-xl: var(--size-7);
+  --padding-2xl: var(--size-8);
+  --padding-3xl: var(--size-9);
+  --padding-10: var(--size-10);
+  --padding-11: var(--size-11);
+  --padding-12: var(--size-12);
+  --padding-13: var(--size-13);
+  --padding-14: var(--size-14);
+  --padding-15: var(--size-15);
+  --padding-16: var(--size-16);
+  --padding-17: var(--size-17);
+  --padding-18: var(--size-18);
+  --padding-19: var(--size-19);
+  --padding-20: var(--size-20);
+
+  --margin-3xs: var(--size-1);
+  --margin-2xs: var(--size-2);
+  --margin-xs: var(--size-3);
+  --margin-sm: var(--size-4);
+  --margin-md: var(--size-5);
+  --margin-lg: var(--size-6);
+  --margin-xl: var(--size-7);
+  --margin-2xl: var(--size-8);
+  --margin-3xl: var(--size-9);
+  --margin-10: var(--size-10);
+  --margin-11: var(--size-11);
+  --margin-12: var(--size-12);
+  --margin-13: var(--size-13);
+  --margin-14: var(--size-14);
+  --margin-15: var(--size-15);
+  --margin-16: var(--size-16);
+  --margin-17: var(--size-17);
+  --margin-18: var(--size-18);
+  --margin-19: var(--size-19);
+  --margin-20: var(--size-20);
+
+  --border-width-1px: 1px;
+  --border-width-2px: 2px;
+  --border-width-3px: 3px;
+
+  --radius-3xs: 0.125rem;
+  --radius-2xs: 0.25rem;
+  --radius-xs: 0.375rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+  --radius-4xl: 2.5rem;
+  --rounded: 50%;
+
+  --opacity-10: 10%;
+  --opacity-20: 20%;
+  --opacity-30: 30%;
+  --opacity-40: 40%;
+  --opacity-50: 50%;
+  --opacity-60: 60%;
+  --opacity-70: 70%;
+  --opacity-80: 80%;
+  --opacity-90: 90%;
+  --opacity-100: 100%;
+
+  --shadow-xs: 0px 1px 2px 0px rgba(0,0,0,0.05);
+  --shadow-sm: 0px 1px 3px 0px rgba(0,0,0,0.1), 0px 1px 2px -1px rgba(0,0,0,0.1);
+  --shadow-md: 0px 4px 6px -1px rgba(0,0,0,0.1), 0px 2px 4px -2px rgba(0,0,0,0.1);
+  --shadow-lg: 0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1);
+  --shadow-xl: 0px 20px 25px -5px rgba(0,0,0,0.1), 0px 8px 10px -6px rgba(0,0,0,0.1);
+  --shadow-2xl: 0px 25px 50px -12px rgba(0,0,0,0.25);
+  --shadow-inner-1: inset 0px 1px 3px 0px rgba(0,0,0,0.2);
+  --shadow-inner-2: inset 0px 4px 6px 0px rgba(0,0,0,0.2);
+}  
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-background-1: var(--primary-950);
+    --primary-background-2: var(--primary-900);
+    --primary-background-3: var(--primary-800);
+    --primary-border-2: var(--primary-700);
+    --primary-border-1: var(--primary-600);
+    --primary-base: var(--primary-500);
+    --primary-text-3: var(--primary-400);
+    --primary-text-2: var(--primary-300);
+    --primary-text-1: var(--primary-200);
+    --primary-base-alt: var(--primary-100);
+    --primary-ultra: var(--primary-50);
+    --primary-gradient-1: linear-gradient(var(--gradient-degree), var(--primary-800), var(--primary-950));
+    --primary-gradient-2: linear-gradient(var(--gradient-degree), var(--primary-600), var(--primary-800));
+    --primary-gradient-3: linear-gradient(var(--gradient-degree), var(--primary-400), var(--primary-600));
+    --primary-gradient-4: linear-gradient(var(--gradient-degree), var(--primary-200), var(--primary-400));
+    --primary-gradient-5: linear-gradient(var(--gradient-degree), var(--cyan-50), var(--primary-200));
+
+    --secondary-background-1: var(--secondary-950);
+    --secondary-background-2: var(--secondary-900);
+    --secondary-background-3: var(--secondary-800);
+    --secondary-border-2: var(--secondary-700);
+    --secondary-border-1: var(--secondary-600);
+    --secondary-base: var(--secondary-500);
+    --secondary-text-3: var(--secondary-400);
+    --secondary-text-2: var(--secondary-300);
+    --secondary-text-1: var(--secondary-200);
+    --secondary-base-alt: var(--secondary-100);
+    --secondary-ultra: var(--secondary-50);
+    --secondary-gradient-1: linear-gradient(var(--gradient-degree), var(--secondary-800), var(--secondary-950));
+    --secondary-gradient-2: linear-gradient(var(--gradient-degree), var(--secondary-600), var(--secondary-800));
+    --secondary-gradient-3: linear-gradient(var(--gradient-degree), var(--secondary-400), var(--secondary-600));
+    --secondary-gradient-4: linear-gradient(var(--gradient-degree), var(--secondary-200), var(--secondary-400));
+    --secondary-gradient-5: linear-gradient(var(--gradient-degree), var(--secondary-50), var(--secondary-200));
+
+    --neutral-background-1: var(--neutral-950);
+    --neutral-background-2: var(--neutral-900);
+    --neutral-background-3: var(--neutral-800);
+    --neutral-border-2: var(--neutral-700);
+    --neutral-border-1: var(--neutral-600);
+    --neutral-base: var(--neutral-500);
+    --neutral-text-3: var(--neutral-400);
+    --neutral-text-2: var(--neutral-300);
+    --neutral-text-1: var(--neutral-200);
+    --neutral-base-alt: var(--neutral-100);
+    --neutral-ultra: var(--neutral-50);
+    --neutral-gradient-1: linear-gradient(var(--gradient-degree), var(--neutral-800), var(--neutral-950));
+    --neutral-gradient-2: linear-gradient(var(--gradient-degree), var(--neutral-600), var(--neutral-800));
+    --neutral-gradient-3: linear-gradient(var(--gradient-degree), var(--neutral-400), var(--neutral-600));
+    --neutral-gradient-4: linear-gradient(var(--gradient-degree), var(--neutral-200), var(--neutral-400));
+    --neutral-gradient-5: linear-gradient(var(--gradient-degree), var(--neutral-50), var(--neutral-200));
+
+    --danger-background-1: var(--danger-950);
+    --danger-background-2: var(--danger-900);
+    --danger-background-3: var(--danger-800);
+    --danger-border-2: var(--danger-700);
+    --danger-border-1: var(--danger-600);
+    --danger-base: var(--danger-500);
+    --danger-text-3: var(--danger-400);
+    --danger-text-2: var(--danger-300);
+    --danger-text-1: var(--danger-200);
+    --danger-base-alt: var(--danger-100);
+    --danger-ultra: var(--danger-50);
+    --danger-gradient-1: linear-gradient(var(--gradient-degree), var(--danger-800), var(--danger-950));
+    --danger-gradient-2: linear-gradient(var(--gradient-degree), var(--danger-600), var(--danger-800));
+    --danger-gradient-3: linear-gradient(var(--gradient-degree), var(--danger-400), var(--danger-600));
+    --danger-gradient-4: linear-gradient(var(--gradient-degree), var(--danger-200), var(--danger-400));
+    --danger-gradient-5: linear-gradient(var(--gradient-degree), var(--danger-50), var(--danger-200));
+
+    --alert-background-1: var(--alert-950);
+    --alert-background-2: var(--alert-900);
+    --alert-background-3: var(--alert-800);
+    --alert-border-2: var(--alert-700);
+    --alert-border-1: var(--alert-600);
+    --alert-base: var(--alert-500);
+    --alert-text-3: var(--alert-400);
+    --alert-text-2: var(--alert-300);
+    --alert-text-1: var(--alert-200);
+    --alert-base-alt: var(--alert-100);
+    --alert-ultra: var(--alert-50);
+    --alert-gradient-1: linear-gradient(var(--gradient-degree), var(--alert-800), var(--alert-950));
+    --alert-gradient-2: linear-gradient(var(--gradient-degree), var(--alert-600), var(--alert-800));
+    --alert-gradient-3: linear-gradient(var(--gradient-degree), var(--alert-400), var(--alert-600));
+    --alert-gradient-4: linear-gradient(var(--gradient-degree), var(--alert-200), var(--alert-400));
+    --alert-gradient-5: linear-gradient(var(--gradient-degree), var(--alert-50), var(--alert-200));
+
+    --success-background-1: var(--success-950);
+    --success-background-2: var(--success-900);
+    --success-background-3: var(--success-800);
+    --success-border-2: var(--success-700);
+    --success-border-1: var(--success-600);
+    --success-base: var(--success-500);
+    --success-text-3: var(--success-400);
+    --success-text-2: var(--success-300);
+    --success-text-1: var(--success-200);
+    --success-base-alt: var(--success-100);
+    --success-ultra: var(--success-50);
+    --success-gradient-1: linear-gradient(var(--gradient-degree), var(--success-800), var(--success-950));
+    --success-gradient-2: linear-gradient(var(--gradient-degree), var(--success-600), var(--success-800));
+    --success-gradient-3: linear-gradient(var(--gradient-degree), var(--success-400), var(--success-600));
+    --success-gradient-4: linear-gradient(var(--gradient-degree), var(--success-200), var(--success-400));
+    --success-gradient-5: linear-gradient(var(--gradient-degree), var(--success-50), var(--success-200));
+  }
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body,
+.text-md {
+  --_font-family: var(--font-family-body);
+  --_font-size: var(--font-size-md);
+  --_line-height: var(--line-height-150);
+  --_font-weight: var(--font-weight-normal);
+  font-family: var(--_font-family);
+  font-size: var(--_font-size);
+  line-height: var(--_line-height);
+  font-weight: var(--_font-weight);
+}
+h1, h2, h3, h4,
+.text-h1,
+.text-h2,
+.text-h3,
+.text-h4 {
+  --_font-family: var(--font-family-title, var(--font-family-body));  
+  --_font-weight: var(--font-weight-bold);
+  --_line-height: var(--line-height-130);
+  font-family: var(--_font-family);
+  font-weight: var(--_font-weight);
+  line-height: var(--_line-height);
+}
+
+h1,
+.text-h1,
+.text-2xl {
+  --_font-size: var(--font-size-h1);
+}
+h2,
+.text-h2,
+.text-xl {
+  --_font-size: var(--font-size-h2);
+}
+h3,
+.text-h3,
+.text-lg {
+  --_font-size: var(--font-size-h3);
+}
+h4,
+.text-h4,
+.text-md {
+  --_font-size: var(--font-size-md);
+}
+.text-sm {
+  --_font-size: var(--font-size-sm); 
+}
+.text-xs {
+  --_font-size: var(--font-size-xs); 
+}

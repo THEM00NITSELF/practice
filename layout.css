@@ -1,0 +1,167 @@
+.grid,
+.grid-2,
+.grid-3,
+.grid-4,
+.grid-6,
+.grid-12 {
+  --grid-column-count: 12;
+  --grid-column-width: 6rem;
+  --grid-padding: 2rem;
+  --grid-offset: 2;
+  --gap: 0rem;
+
+  --_grid-padding: calc(var(--grid-padding) - (var(--column-gap, var(--gap))));
+  --span: calc(
+    var(--grid-column-count) / var(--column-count, --grid-column-count)
+  );
+  gap: var(--row-gap, var(--gap)) var(--column-gap, var(--gap));
+  display: grid;
+  grid-template-columns:
+    minmax(var(--_grid-padding), 1fr)
+    repeat(var(--grid-column-count), minmax(0, calc(var(--grid-column-width) - 12 / 13 * var(--column-gap, var(--gap)))))
+    minmax(var(--_grid-padding), 1fr);
+
+  & > :not(:first-child, :last-child) {
+    grid-column: var(--offset-mid-span, span var(--span));
+  }
+
+  & > .subgrid {
+    display: grid;
+    grid-template-columns: subgrid;
+    gap: var(--row-gap, var(--gap)) var(--column-gap, var(--gap));
+
+    & > * {
+      grid-column: span var(--span);
+    }
+  }
+}
+
+@media (width < 30rem) {
+  .grid,
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .grid-6,
+  .grid-12 {
+    grid-template-columns:
+      minmax(var(--_grid-padding), 1fr)
+      minmax(0, 30rem)
+      minmax(var(--_grid-padding), 1fr);
+
+    & > .subgrid {
+      display: grid;
+      grid-template-columns: subgrid;
+      gap: var(--row-gap, var(--gap)) var(--column-gap, var(--gap));
+
+      & > * {
+        grid-column: span var(--span);
+        grid-column-start: 2;
+        grid-column-end: -2;
+      }
+    }
+
+    :has(&) & > * {
+      grid-column-start: 2;
+      grid-column-end: -2;
+    }
+  }
+}
+
+@media (width > 30rem) {
+  .grid > :first-child,
+  .grid-2 > :nth-child(2n + 1),
+  .grid-3 > :nth-child(3n + 1),
+  .grid-4 > :nth-child(4n + 1),
+  .grid-6 > :nth-child(6n + 1),
+  .grid-12 > :nth-child(12n + 1) {
+    grid-column-start: var(--break-out-start, var(--grid-offset));
+    grid-column-end: var(--offset-first-end, calc(var(--span) + 2));
+  }
+
+  .grid > :last-child,
+  .grid-2 > :nth-child(2n),
+  .grid-3 > :nth-child(3n),
+  .grid-4 > :nth-child(4n),
+  .grid-6 > :nth-child(6n),
+  .grid-12 > :nth-child(12n) {
+    grid-column-start: var(--offset-last-start, calc((var(--span) + 2) * -1));
+    grid-column-end: calc(var(--break-out-end, var(--grid-offset)) * -1);
+  }
+
+  .offset-1 {
+    --grid-offset: 3;
+  }
+  .offset-2 {
+    --grid-offset: 4;
+
+    &.grid-4 {
+      --offset-first-end: 6;
+      --offset-mid-span: span 2;
+      --offset-last-start: 10;
+    }
+  }
+  .offset-3 {
+    --grid-offset: 5;
+
+    &.grid-3 {
+      --offset-first-end: 7;
+      --offset-mid-span: span 2;
+      --offset-last-start: 9;
+    }
+  }
+  .offset-4 {
+    --grid-offset: 6;
+  }
+  .offset-5 {
+    --grid-offset: 7;
+  }
+  .offset-6 {
+    --grid-offset: 3;
+  }
+  
+  .grid-2 {
+    --column-count: 2;
+  }
+  .grid-3 {
+    --column-count: 3;
+  }
+  .grid-4 {
+    --column-count: 4;
+  }
+  .grid-6 {
+    --column-count: 6;
+  }
+  .grid-12 {
+    --column-count: 12;
+  }
+  .span-2 {
+    --span: 2;
+  }
+  .span-3 {
+    --span: 3;
+  }
+  .span-4 {
+    --span: 4;
+  }
+  .span-5 {
+    --span: 5;
+  }
+}
+
+
+.grid {
+  display: grid;
+  & > :only-child {
+    grid-column-start: var(--break-out-start, var(--grid-offset));
+    grid-column-end: calc(var(--break-out-end, var(--grid-offset)) * -1);
+  }
+}
+
+.break-out,
+.break-out-start {
+  --break-out-start: 1;
+}
+.break-out,
+.break-out-end {
+  --break-out-end: 1;
+}
